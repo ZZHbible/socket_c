@@ -42,8 +42,24 @@ pthread_t arrThrReceiveClient[MaxClientNum];
 int thrReceiveClientCount;          // 当前通信子线程数量
 
 /* 线程功能函数 */
+
+/********************************************************************
+ *   Function Name: void *fun_thrReceiveHandler(void *socketInfo)
+ *   Description: 向服务器发送初始消息，从服务器循环接收信息.
+ *   Called By: server.c[main]
+ *   Input: socketInfo -> 表示客户端的网络信息
+ *********************************************************************/
 void *fun_thrReceiveHandler(void *socketInfo);
+
+/********************************************************************
+ *   Function Name: checkThrIsKill(pthread_t thr)
+ *   Description: 检测当前线程是否存活.
+ *   Called By: server.c[main]
+ *   Input: thr -> 线程数组中的线程
+ *********************************************************************/
 void *fun_thrAcceptHandler(void *socketListen);
+
+
 int checkThrIsKill(pthread_t thr);
 
 /* utils */
